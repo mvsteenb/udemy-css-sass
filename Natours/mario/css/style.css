@@ -52,11 +52,14 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);                        /* put this box in the center */
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;  
+  backface-visibility: hidden;                              /* fix bug in animation */
+  margin: 60px;
 }
 
 .heading-primary-main {
@@ -67,6 +70,8 @@ body {
 
   animation-name: moveInLeft;
   animation-duration: 1s;
+  /*animation-delay: 3s;                                      /* wait 3 seconds before animation */
+  animation-timing-function: ease-out;                      /* start fast, slower by the end */
 }
 
 .heading-primary-sub {
@@ -74,6 +79,7 @@ body {
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 17.4px;
+  animation: moveInRight 1s ease-out;                       /* all on 1 line */  
 }
 
 @keyframes moveInLeft {
@@ -84,6 +90,87 @@ body {
 
   80% {
     transform: translateX(10px);                            /* move a bit more to the right */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {                                                      /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);                           /* move a bit more to the left */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {                                               /* link pseudo-class */
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;                                     /* always do this if you set heights, widths, or paddings to elements */
+  border-radius: 100px;
+  transition: all .2s;                                       /* transition all properties */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);               /* subtle shadow on hover */
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);                /* subtle shadow on hover */
+}
+
+.btn::after {                                                /* pseudo element */
+  content: "";                                               /* required */
+  display: inline-block;                                     /* same as parent */
+  height: 100%;                                              /* 100% of parent button */
+  width: 100%;                                               /* 100% of parent button */
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white {
+  background-color: white;
+  color: #777;  
+}
+
+.btn-white::after {                                  
+  background-color: white;                                 /* pseudo element */
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6); 
+  opacity: 0; 
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;                       
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+  0% {                                                      /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateY(30px);                            /* hide button when animation starts */
   }
 
   100% {
