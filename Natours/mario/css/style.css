@@ -6,3 +6,88 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;                                   /* no screen borders */
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  position: relative;
+  height: 95vh;                                             /* 95% of the viewport height */
+  background-image: 
+    linear-gradient(
+      to right bottom, 
+      #7ed56fad, 
+      #28b485c4
+    ), 
+    url("../img/hero.jpg");
+  background-size: cover;                                   /* fit 100% of element */
+  background-position: top;                                 /* image stays always at the top */  
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);        /* you can use the clippy tool for this */
+}
+
+.logo-box {
+  position: absolute;
+  left: 40px;                                               /* from the relative parent */
+  top: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);                        /* put this box in the center */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;  
+}
+
+.heading-primary-main {
+  display: block;                                           /* use 100% full width */
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+}
+
+.heading-primary-sub {
+  display: block;                                           /* use 100% full width */
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 17.4px;
+}
+
+@keyframes moveInLeft {
+  0% {                                                      /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);                            /* move a bit more to the right */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
