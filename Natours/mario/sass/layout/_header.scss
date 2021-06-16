@@ -1,0 +1,33 @@
+.header {
+  position: relative;
+  height: 95vh;                                             /* 95% of the viewport height */
+  background-image: 
+    linear-gradient(
+      to right bottom, 
+      rgba($color-primary-light, 0.8), 
+      rgba($color-primary-dark, 0.8), 
+    ), 
+    url("../img/hero.jpg");
+  background-size: cover;                                   /* fit 100% of element */
+  background-position: top;                                 /* image stays always at the top */  
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);        /* you can use the clippy tool for this */
+
+  &__logo-box {
+    position: absolute;
+    left: 4rem;                                               /* from the relative parent */
+    top: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);                        /* put this box in the center */
+    text-align: center;
+  }
+  
+}

@@ -1,0 +1,43 @@
+@keyframes moveInLeft {
+  0% {                                                      /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(10rem);                            /* move a bit more to the right */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {                                                      /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);                           /* move a bit more to the left */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {                                                      /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateY(3rem);                            /* hide button when animation starts */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

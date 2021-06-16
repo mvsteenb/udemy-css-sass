@@ -1,193 +1,163 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;                                      /* is not inherited by default -- forces inheritance */
-}
+  box-sizing: inherit;
+  /* is not inherited by default -- forces inheritance */ }
 
 html {
-  /*font-size: 10px;*/                                      /* bad practice */
-  font-size: 62.5%;                                         /* use percentage of 16px */
-}
+  /*font-size: 10px;*/
+  /* bad practice */
+  font-size: 62.5%;
+  /* use percentage of 16px */ }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;  
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
   padding: 3rem;
-  box-sizing: border-box;                                   /* no screen borders */
-}
+  box-sizing: border-box;
+  /* no screen borders */ }
 
 .header {
   position: relative;
-  height: 95vh;                                             /* 95% of the viewport height */
-  background-image: 
-    linear-gradient(
-      to right bottom, 
-      #7ed56fad, 
-      #28b485c4
-    ), 
-    url("../img/hero.jpg");
-  background-size: cover;                                   /* fit 100% of element */
-  background-position: top;                                 /* image stays always at the top */  
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);        /* you can use the clippy tool for this */
-}
-
-.header__logo-box {
-  position: absolute;
-  left: 4rem;                                               /* from the relative parent */
-  top: 4rem;
-}
-
-.header__logo {
-  height: 3.5rem;
-}
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);                        /* put this box in the center */
-  text-align: center;
-}
+  height: 95vh;
+  /* 95% of the viewport height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  /* fit 100% of element */
+  background-position: top;
+  /* image stays always at the top */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  /* you can use the clippy tool for this */ }
+  .header__logo-box {
+    position: absolute;
+    left: 4rem;
+    /* from the relative parent */
+    top: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* put this box in the center */
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
-  text-transform: uppercase;  
-  backface-visibility: hidden;                              /* fix bug in animation */
-  margin: 6rem;
-}
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* fix bug in animation */
+  margin: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /* use 100% full width */
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /*animation-delay: 3s;                                      /* wait 3 seconds before animation */
+    animation-timing-function: ease-out;
+    /* start fast, slower by the end */ }
+  .heading-primary--sub {
+    display: block;
+    /* use 100% full width */
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    /* all on 1 line */ }
 
-.heading-primary--main {
-  display: block;                                           /* use 100% full width */
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 3.5rem;
-
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  /*animation-delay: 3s;                                      /* wait 3 seconds before animation */
-  animation-timing-function: ease-out;                      /* start fast, slower by the end */
-}
-
-.heading-primary--sub {
-  display: block;                                           /* use 100% full width */
-  font-size: 2rem;
-  font-weight: 300;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;                       /* all on 1 line */  
-}
-
-.btn:link,
-.btn:visited {                                               /* link pseudo-class */
+.btn:link, .btn:visited {
+  /* link pseudo-class */
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
-  display: inline-block;                                     /* always do this if you set heights, widths, or paddings to elements */
+  display: inline-block;
+  /* always do this if you set heights, widths, or paddings to elements */
   border-radius: 10rem;
-  transition: all .2s;                                       /* transition all properties */
+  transition: all .2s;
+  /* transition all properties */
   position: relative;
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);               /* subtle shadow on hover */
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* subtle shadow on hover */ }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
-  transform: translateY(-.1px);
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);                /* subtle shadow on hover */
-}
+  transform: translateY(-0.1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  /* subtle shadow on hover */ }
 
-.btn::after {                                                /* pseudo element */
-  content: "";                                               /* required */
-  display: inline-block;                                     /* same as parent */
-  height: 100%;                                              /* 100% of parent button */
-  width: 100%;                                               /* 100% of parent button */
+.btn:after {
+  /* pseudo element */
+  content: "";
+  /* required */
+  display: inline-block;
+  /* same as parent */
+  height: 100%;
+  /* 100% of parent button */
+  width: 100%;
+  /* 100% of parent button */
   border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s;
-}
+  transition: all .4s; }
 
 .btn--white {
-  background-color: white;
-  color: #777;  
-}
-
-.btn--white::after {                                  
-  background-color: white;                                 /* pseudo element */
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6); 
-  opacity: 0; 
-}
+  background-color: #fff;
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff;
+    /* pseudo element */ }
 
 .btn--animated {
-  animation: moveInBottom .5s ease-out .75s;                       
-  animation-fill-mode: backwards;
-}
-
-/* ----------------------------------------- */
-/* ANIMATIONS                                */
-/* ----------------------------------------- */
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards; }
 
 @keyframes moveInLeft {
-  0% {                                                      /* use only 2 properties for performance */
+  0% {
+    /* use only 2 properties for performance */
     opacity: 0;
-    transform: translateX(-10rem);
-  }
-
+    transform: translateX(-10rem); }
   80% {
-    transform: translateX(10rem);                            /* move a bit more to the right */
-  }
-
+    transform: translateX(10rem);
+    /* move a bit more to the right */ }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 @keyframes moveInRight {
-  0% {                                                      /* use only 2 properties for performance */
+  0% {
+    /* use only 2 properties for performance */
     opacity: 0;
-    transform: translateX(10rem);
-  }
-
+    transform: translateX(10rem); }
   80% {
-    transform: translateX(-1rem);                           /* move a bit more to the left */
-  }
-
+    transform: translateX(-1rem);
+    /* move a bit more to the left */ }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 @keyframes moveInBottom {
-  0% {                                                      /* use only 2 properties for performance */
+  0% {
+    /* use only 2 properties for performance */
     opacity: 0;
-    transform: translateY(3rem);                            /* hide button when animation starts */
-  }
-
+    transform: translateY(3rem);
+    /* hide button when animation starts */ }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }

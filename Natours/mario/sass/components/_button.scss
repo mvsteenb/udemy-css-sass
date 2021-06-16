@@ -1,0 +1,57 @@
+.btn {
+
+  &:link,
+  &:visited {                                               /* link pseudo-class */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;                                     /* always do this if you set heights, widths, or paddings to elements */
+    border-radius: 10rem;
+    transition: all .2s;                                       /* transition all properties */
+    position: relative;
+    font-size: 1.6rem;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);               /* subtle shadow on hover */
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6); 
+      opacity: 0; 
+    }
+  }
+  
+  &:active {
+    transform: translateY(-.1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);                /* subtle shadow on hover */
+  }
+  
+  &:after {                                                /* pseudo element */
+    content: "";                                               /* required */
+    display: inline-block;                                     /* same as parent */
+    height: 100%;                                              /* 100% of parent button */
+    width: 100%;                                               /* 100% of parent button */
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+  
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;  
+
+    &::after {                                  
+      background-color: $color-white;                                 /* pseudo element */
+    }
+  }
+  
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;                       
+    animation-fill-mode: backwards;
+  }
+
+}
