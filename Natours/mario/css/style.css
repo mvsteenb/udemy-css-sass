@@ -1,3 +1,4 @@
+@import url("../abstracts/_variables.scss");
 *,
 *::after,
 *::before {
@@ -10,7 +11,45 @@ html {
   /*font-size: 10px;*/
   /* bad practice */
   font-size: 62.5%;
-  /* use percentage of 16px */ }
+  /* 1rem = use percentage of 16px */ }
+
+body {
+  box-sizing: border-box;
+  /* no screen borders */ }
+
+@keyframes moveInLeft {
+  0% {
+    /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(10rem);
+    /* move a bit more to the right */ }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem);
+    /* move a bit more to the left */ }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    /* use only 2 properties for performance */
+    opacity: 0;
+    transform: translateY(3rem);
+    /* hide button when animation starts */ }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -18,35 +57,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box;
-  /* no screen borders */ }
-
-.header {
-  position: relative;
-  height: 95vh;
-  /* 95% of the viewport height */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  background-size: cover;
-  /* fit 100% of element */
-  background-position: top;
-  /* image stays always at the top */
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  /* you can use the clippy tool for this */ }
-  .header__logo-box {
-    position: absolute;
-    left: 4rem;
-    /* from the relative parent */
-    top: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* put this box in the center */
-    text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: #fff;
@@ -128,36 +139,41 @@ body {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
-@keyframes moveInLeft {
-  0% {
-    /* use only 2 properties for performance */
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    transform: translateX(10rem);
-    /* move a bit more to the right */ }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+    background-color: orangered;
+    float: left; }
+    .row .col-1-of-2:not(:last-child) {
+      margin-right: 6rem; }
 
-@keyframes moveInRight {
-  0% {
-    /* use only 2 properties for performance */
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem);
-    /* move a bit more to the left */ }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInBottom {
-  0% {
-    /* use only 2 properties for performance */
-    opacity: 0;
-    transform: translateY(3rem);
-    /* hide button when animation starts */ }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.header {
+  position: relative;
+  height: 95vh;
+  /* 95% of the viewport height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  /* fit 100% of element */
+  background-position: top;
+  /* image stays always at the top */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  /* you can use the clippy tool for this */ }
+  .header__logo-box {
+    position: absolute;
+    left: 4rem;
+    /* from the relative parent */
+    top: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* put this box in the center */
+    text-align: center; }
