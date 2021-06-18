@@ -48,6 +48,15 @@
       background-color: $color-white;                          /* pseudo element */
     }
   }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;  
+
+    &::after {                                  
+      background-color: $color-primary;                          /* pseudo element */
+    }
+  }
   
   &--animated {
     animation: moveInBottom .5s ease-out .75s;                       

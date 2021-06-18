@@ -8,9 +8,10 @@
       rgba($color-primary-dark, 0.8), 
     ), 
     url("../img/hero.jpg");
-  background-size: cover;                                   /* fit 100% of element */
-  background-position: top;                                 /* image stays always at the top */  
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);        /* you can use the clippy tool for this */
+  background-size: cover;                                         /* fit 100% of element */
+  background-position: top;                                       /* image stays always at the top */  
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);     
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);             /* you can use the clippy tool for this */
 
   &__logo-box {
     position: absolute;
