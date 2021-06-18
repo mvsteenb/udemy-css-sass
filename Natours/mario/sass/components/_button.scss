@@ -24,10 +24,10 @@
   
   &:active {
     transform: translateY(-.1px);
-    box-shadow: 0 .5rem 1rem rgba($color-black, .2);                /* subtle shadow on hover */
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);           /* subtle shadow on hover */
   }
   
-  &:after {                                                /* pseudo element */
+  &:after {                                                    /* pseudo element */
     content: "";                                               /* required */
     display: inline-block;                                     /* same as parent */
     height: 100%;                                              /* 100% of parent button */
@@ -45,7 +45,7 @@
     color: $color-gray-dark;  
 
     &::after {                                  
-      background-color: $color-white;                                 /* pseudo element */
+      background-color: $color-white;                          /* pseudo element */
     }
   }
   

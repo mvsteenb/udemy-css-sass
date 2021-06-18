@@ -1,8 +1,7 @@
 @import url("../abstracts/_variables.scss");
 
 .row {
-  max-width: $grid-width;
-  background-color: #eee;
+  max-width: $grid-width;  
   margin: 0 auto;
 
   &:not(:last-child) {
@@ -11,8 +10,7 @@
 
   @include clearfix;
 
-  [class^="col-"] {                                       // select all classes that start with 'col-'
-    background-color: orangered;
+  [class^="col-"] {                                       // select all classes that start with 'col-'    
     float: left;
 
     &:not(:last-child) {
