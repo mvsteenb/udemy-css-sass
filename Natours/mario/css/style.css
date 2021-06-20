@@ -1,3 +1,18 @@
+/*
+0 - 600px:       phone
+600 - 900px  :   tablet portrait
+900 - 1200px :   tablet landscape
+1200 - 1800px :  normal styles
+1800px - * :     big desktop
+
+$breakpoint argument choices
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+
+ORDER : base + typography > general layout + grid > page layout > components
+*/
 @import url("../abstracts/_variables.scss");
 *,
 *::after,
@@ -11,11 +26,23 @@ html {
   /*font-size: 10px;*/
   /* bad practice */
   font-size: 62.5%;
-  /* 1rem = use percentage of 16px */ }
+  /* 1rem = 10px = use percentage of 16px */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%;
+      /* 1 rem = 9px = 9/16 = 65.25% */ } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%;
+      /* 1 rem = 8px = 8/16 = 50% */ } }
 
 body {
   box-sizing: border-box;
-  /* no screen borders */ }
+  /* no screen borders */
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 @keyframes moveInLeft {
   0% {
@@ -56,8 +83,7 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: #777; }
 
 .heading-primary {
   color: #fff;

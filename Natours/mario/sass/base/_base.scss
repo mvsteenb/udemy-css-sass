@@ -8,9 +8,27 @@
 
 html {
   /*font-size: 10px;*/                                      /* bad practice */
-  font-size: 62.5%;                                         /* 1rem = use percentage of 16px */
+  font-size: 62.5%;                                         /* 1rem = 10px = use percentage of 16px */
+
+  @include respond(tab-land) {                              // width < 1200px?
+    font-size: 56.25%;                                      /* 1 rem = 9px = 9/16 = 65.25% */
+  }
+
+  @include respond(tab-port) {                              // width < 900px?
+    font-size: 50%;                                         /* 1 rem = 8px = 8/16 = 50% */
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;                                         /* 1 rem = 12px = 12/16 = 75% */
+  }
 }
 
 body {  
   box-sizing: border-box;                                   /* no screen borders */
-}
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+
+} 
