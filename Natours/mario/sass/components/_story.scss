@@ -10,6 +10,7 @@
   transform: skewX(-12deg);
   position: relative;
 
+
   & > * {
     transform: skewX(12deg);
   }
@@ -37,10 +38,7 @@
   }
 
   &__caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 20%); // out-of-sight
+    @include center_screen;
     color: $color-white;
     text-transform: uppercase;
     font-size: 1.7rem;
