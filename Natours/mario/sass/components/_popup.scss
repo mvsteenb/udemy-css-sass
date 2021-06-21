@@ -25,6 +25,10 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.25);
     transition: all .4s .2s;
+
+    @include respond(tab-port) {
+      width: 90%;
+    }
   }
 
   &__left {
@@ -32,6 +36,10 @@
     //float: left;                   // does not take the full height --> use table-cell
     display: table-cell;
     vertical-align: middle;
+
+    @include respond(tab-port) {
+      vertical-align: top;
+    }
   }
 
   &__right {
@@ -40,11 +48,17 @@
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
+    
   }
 
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-port) {
+
+    }
   }
 
   &__text {
@@ -62,6 +76,11 @@
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
+
+    @include respond(tab-port) {
+      column-count: 1;
+      -moz-column-count: 1;
+    }
   }
 
   // open status
