@@ -1,17 +1,30 @@
 .header {
   position: relative;
   height: 95vh;                                                   /* 95% of the viewport height */
-  background-image: 
+  
+  background-image:                                               // low resolution
     linear-gradient(
       to right bottom, 
       rgba($color-primary-light, 0.8), 
       rgba($color-primary-dark, 0.8), 
     ), 
-    url("../img/hero.jpg");
+    url("../img/hero-small.jpg");                                 
+
   background-size: cover;                                         /* fit 100% of element */
   background-position: top;                                       /* image stays always at the top */  
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);     
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);             /* you can use the clippy tool for this */
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),        // if resolution is higher than 192dpi (apple retina), and min-width > 600px
+  (min-width: 125em) {                                            // if screen width > 2000px   
+    background-image:                                             
+    linear-gradient(
+      to right bottom, 
+      rgba($color-secondary-light, 0.8), 
+      rgba($color-secondary-dark, 0.8), 
+    ), 
+    url("../img/hero.jpg");
+  }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);     
