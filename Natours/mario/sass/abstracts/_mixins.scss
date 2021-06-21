@@ -31,8 +31,8 @@ ORDER : base + typography > general layout + grid > page layout > components
 */
 @mixin respond($breakpoint) {
   @if ($breakpoint == 'phone') {
-    @media (max-width: 37.5em) { @content };    // 600px            // em or rem is not afftected by base-font
-  }                                                                 // always use em for meda-queries !
+    @media (max-width: 37.5em) { @content };    // 600px            // "em" or "rem" is not afftected by base-font
+  }                                                                 // always use "em" for meda-queries !
   @if ($breakpoint == 'tab-port') {
     @media (max-width: 56.25em) { @content };   // 900px
   }
@@ -40,7 +40,7 @@ ORDER : base + typography > general layout + grid > page layout > components
     @media (max-width: 75em) { @content };      // 1200px
   }
   @if ($breakpoint == 'tab-big-desktop') {
-    @media (min-width: 112.5em) { @content };   // 1800px
+    @media (min-width: 112.5em) { @content };   // 1800px 
   }
 }
 

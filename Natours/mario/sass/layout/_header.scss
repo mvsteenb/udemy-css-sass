@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  height: 95vh;                                             /* 95% of the viewport height */
+  height: 95vh;                                                   /* 95% of the viewport height */
   background-image: 
     linear-gradient(
       to right bottom, 
@@ -13,14 +13,19 @@
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);     
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);             /* you can use the clippy tool for this */
 
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);     
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);             /* you can use the clippy tool for this */
+  }
+
   &__logo-box {
     position: absolute;
-    left: 4rem;                                               /* from the relative parent */
+    left: 4rem;                                                   /* from the relative parent */
     top: 4rem;
   }
 
   &__logo {
-    height: 3.5rem;
+    height: 3.5rem; 
   }
 
   &__text-box {
