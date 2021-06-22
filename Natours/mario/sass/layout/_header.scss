@@ -20,9 +20,9 @@
     height: 95vh;                                                   /* 95% of the viewport height */
   }
 
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),              // if resolution is higher than 192dpi (apple retina), and min-width > 600px
-         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),   // Needed for Safari !
-         (min-width: 125em) {                                           // if screen width > 2000px   
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),              // if resolution is higher than 192dpi (apple retina), and min-width > 600px
+         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),   // Needed for Safari !
+         only screen and (min-width: 125em) {                                           // if screen width > 2000px   
     background-image:                                             
     linear-gradient(
       to right bottom, 
