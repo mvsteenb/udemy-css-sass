@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  height: 95vh;                                                   /* 95% of the viewport height */
+  height: 80vh;                                                   /* 85% of the viewport height */
   
   background-image:                                               // low resolution
     linear-gradient(
@@ -12,11 +12,17 @@
 
   background-size: cover;                                         /* fit 100% of element */
   background-position: top;                                       /* image stays always at the top */  
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);     
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);             /* you can use the clippy tool for this */
+  
 
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),        // if resolution is higher than 192dpi (apple retina), and min-width > 600px
-  (min-width: 125em) {                                            // if screen width > 2000px   
+  @supports(clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);     
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);             /* you can use the clippy tool for this */
+    height: 95vh;                                                   /* 95% of the viewport height */
+  }
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),              // if resolution is higher than 192dpi (apple retina), and min-width > 600px
+         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),   // Needed for Safari !
+         (min-width: 125em) {                                           // if screen width > 2000px   
     background-image:                                             
     linear-gradient(
       to right bottom, 

@@ -15,7 +15,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    backface-visibility: hidden;              // hides backpart of an element !
+
+    -webkit-backface-visibility: hidden;                                                // hides backpart of an element !
+    backface-visibility: hidden;                                                        // hides backpart of an element !
+
     overflow: hidden;
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);

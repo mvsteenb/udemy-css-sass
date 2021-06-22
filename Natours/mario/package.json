@@ -4,7 +4,8 @@
   "description": "Landing page for natours by Mario",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css"
   },
   "author": "Mario Van Steenberghe",
   "license": "ISC",
