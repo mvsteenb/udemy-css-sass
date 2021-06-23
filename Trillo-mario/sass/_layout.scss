@@ -26,10 +26,17 @@
   background-color: var(--color-grey-dark-1);
 
   flex: 0 0 18%;                                          // grow, shrink, basis
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;                         // moves legal context to bottom !
 }
 
 .hotel-view {
   background-color: #fff;
 
+  // TEST
+  height: 80rem;
+  
   flex: 1;                                                // grow element -- full space
-}
+} 
