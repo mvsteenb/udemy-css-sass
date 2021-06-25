@@ -16,6 +16,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;                                                // becomes last element now
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;    
     font-size: inherit;
@@ -128,12 +134,25 @@
   list-style: none;
   margin: 3.5rem 0;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
     transition: all .3s;
 
     &:not(:last-child) {
       margin-bottom: .5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;                                                       // each item grows as much as possible
     }
 
   }
@@ -176,6 +195,16 @@
 
     position: relative;                                             // needed for z-index to work !
     z-index: 10;                                                    // only works in combination with position
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
   }
 
   &__icon {
@@ -183,6 +212,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;                                             // color of the parent element !!!
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 7px;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
 }
@@ -195,6 +231,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 
 }
 
@@ -228,6 +268,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -266,15 +311,27 @@
     justify-content: center;
     flex-direction: column;
 
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
     &-count {
       font-size: .8rem;
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: .5rem;
+      }
     }
 
     &-average {
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: -3px;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
     }
 
   }
@@ -340,6 +397,14 @@
   
   font-size: 1.4rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+
   &__description {
     font-size: 1.4rem;
     background-color: #fff;
@@ -348,6 +413,15 @@
     flex: 0 1 60%;
     margin-right: 4.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 3rem;
+    }
   }
 
 }
@@ -412,7 +486,7 @@
   }
 
   &__friends {
-
+    display: flex;
   }
 
   &__photo {
@@ -423,7 +497,7 @@
     border: 3px solid white;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;      
+      margin-right: -2rem;
     }
     
   }
@@ -440,6 +514,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -506,6 +585,10 @@
   padding: 3.5rem;
   text-align: center;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem;
+  }
+
   &__book-now {
     text-transform: uppercase;
     font-size: 2rem;
@@ -546,7 +629,7 @@
     position: absolute;
     padding: 2rem 0;
     left: 0;
-    top: -100%;                      // move up size of the element !
+    top: -100%;                       // move up size of the element !
 
   }
 
